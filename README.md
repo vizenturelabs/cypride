@@ -82,7 +82,7 @@ This isn't ride-hailing — it's neighbor helping neighbor across Cyprus' unique
     <img src="https://raw.githubusercontent.com/rubenpgrady/get-it-on-github/refs/heads/main/get-it-on-github.png" alt="Get it on GitHub" height="96" />
   </a>
   
-  <a href="https://apps.obtainium.imranr.dev/redirect?r=obtainium://app/https%3A%2F%2Fgithub.com%2Fvizenturelabs%2Fcypride">
+  <a href="https://apps.obtainium.imranr.dev/redirect?r=obtainium://app/https%3A%2F%2Fgithub.com%2Fvizenturelabs%2Fcypride <encoded json>">
    <img src="https://github.com/ImranR98/Obtainium/blob/main/assets/graphics/badge_obtainium.png" alt="Get it on Obtainium" height="96" />
   </a>
   
