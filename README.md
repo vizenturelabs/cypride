@@ -102,6 +102,7 @@ To verify your downloaded APK with tools as [AppVerifier](https://github.com/sou
 - [X] Fully compliant with Google Play policies
 - [X] Email Password less sign-in authentication 
 - [X] Optimization efforts to improve stability
+- [ ] Add Fuel Prices in Cyprus to drawer menu
 - [ ] Ride notifications for the dashboard
 - [ ] App update notification for new version
 - [ ] Language options in settings (Greek, Russian)
