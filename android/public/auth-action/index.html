@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signing in to CypRide...</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; text-align: center; padding: 50px 20px; color: #333; background-color: #f9f9f9; }
+        .loader { border: 4px solid #f3f3f3; border-top: 4px solid #2A6AAE; border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; margin: 20px auto; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        .btn { display: inline-block; background: #2A6AAE; color: white; padding: 15px 30px; border-radius: 8px; text-decoration: none; font-size: 16px; font-weight: bold; margin-top: 20px; }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+<h2>Verifying your email...</h2>
+<div class="loader" id="loader"></div>
+<p id="message">Opening CypRide app automatically.</p>
+
+<div id="fallback" class="hidden">
+    <p>If the app didn't open, please tap the button below:</p>
+    <a id="openBtn" class="btn" href="#">Open CypRide App</a>
+</div>
+
+<script>
+    // 1. Capture the FULL URL (includes ?apiKey=...&oobCode=...&mode=signIn)
+    const fullUrl = window.location.href;
+
+    // 2. Construct the deep link for the app
+    const appLink = "cypride://auth?link=" + encodeURIComponent(fullUrl);
+
+    // 3. Set the fallback button href
+    document.getElementById('openBtn').href = appLink;
+
+    // 4. Attempt to open the app immediately
+    window.location.href = appLink;
+
+    // 5. Show fallback button if the app doesn't open within 2.5 seconds
+    setTimeout(() => {
+        document.getElementById('loader').style.display = 'none';
+        document.getElementById('message').innerText = "The app didn't open automatically.";
+        document.getElementById('fallback').classList.remove('hidden');
+    }, 2500);
+</script>
+</body>
+</html>

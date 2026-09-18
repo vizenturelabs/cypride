@@ -1,0 +1,28 @@
+flutter_native_splash:
+  # Required: choose ONE — either color OR background_image
+  # We use image (your splash.png), so COMMENT out 'color'
+  color: "#FFFFFF"
+
+  # your splash image (must be PNG, 1080x1920 recommended)
+  image: assets/splash/splash.png
+
+  # Optional: center alignment (default is center)
+  android_gravity: center
+  ios_content_mode: center
+  web_image_mode: contain
+
+  # Fullscreen mode (hide status bar on Android)
+  fullscreen: true
+
+  # Optional: branding (e.g., small logo at bottom) — skip for now
+  # branding: assets/splash/branding.png
+  # branding_mode: bottom
+  # branding_bottom_padding: 24
+
+  # Android 12+ specific (required for API 31+)
+  android_12:
+    # Window background color (must be solid)
+    color: "#FFFFFF"
+    # Icon (optional — if omitted, uses app launcher icon)
+    # image: assets/splash/icon_960.png
+    # icon_background_color: "#2A6AAE"

@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "398627783777",
+    "project_id": "project-bbc-alpha",
+    "storage_bucket": "project-bbc-alpha.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:398627783777:android:bcc84edfea1e8415ecd620",
+        "android_client_info": {
+          "package_name": "com.vizenture.cypride"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "398627783777-85ja0ieubf9lrcpi1q58g7ktnsror2mb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.vizenture.cypride",
+            "certificate_hash": "2354c7c70a68d2091a45d0fbafe7cb0c5f31cc1b"
+          }
+        },
+        {
+          "client_id": "398627783777-mhdj1eukiab7ju7tqo2rdpgble8bdi72.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.vizenture.cypride",
+            "certificate_hash": "02ef57059b0f76bdc1d97421da623bfe9063bef5"
+          }
+        },
+        {
+          "client_id": "398627783777-sm21n83tti11hn69elg8pmnmmjkfq36b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDvPd8Rc_MbJj2qFLzQyqjFHfQducwTtW0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "398627783777-9dc2a5jqqpe18m4ppl62k9l025gk5jrn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
