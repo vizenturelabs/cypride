@@ -105,3 +105,5 @@ lib/api_key.dart
 !**/ios/**/default.pbxuser
 !**/ios/**/default.perspectivev3
 !.vscode/settings.json
+
+.env
