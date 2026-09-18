@@ -114,7 +114,7 @@ To verify your downloaded APK with tools as [AppVerifier](https://github.com/sou
 
 ## 🤝 **How to contribute**
 
-- We do not accept code contributions. This project is maintained only by us, we intend to keep it that way
+- We do not accept code contributions. This project is maintained only by us for now, BUT this could change
 - Submit your ideas/suggestions on [Telegram](https://t.me/+LR4iIYO_M54wYjFk) channel, we are always listening the Cyprus community
 - Encountered a crash or run into an issue? Create a new [Issue](https://github.com/vizenture/cypride/issues) with full details to help resolve it
 - You can help make the app accessible in multiple languages. To contribute, visit Hosted Weblate (coming soon..)
