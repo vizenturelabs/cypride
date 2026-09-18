@@ -107,3 +107,5 @@ lib/api_key.dart
 !.vscode/settings.json
 
 .env
+.metadata
+.metadata
