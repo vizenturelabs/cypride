@@ -77,22 +77,21 @@ This isn't ride-hailing — it's neighbor helping neighbor across Cyprus' unique
 
 ## 📥 **Download**
 
-<div style="display: flex">
+<div style="display: flex; align-items: center; gap: 15px; flex-wrap: wrap; justify-content: flex-start; text-align: left; margin-bottom: 16px;">
   <a href="https://github.com/vizenture/cypride/releases">
-    <img src="https://raw.githubusercontent.com/rubenpgrady/get-it-on-github/refs/heads/main/get-it-on-github.png" alt="Get it on GitHub" height="96" />
+    <img src="https://raw.githubusercontent.com/rubenpgrady/get-it-on-github/refs/heads/main/get-it-on-github.png" alt="Get it on GitHub" height="96" style="display: block;" />
   </a>
 
   <a href="https://apps.obtainium.imranr.dev/redirect.html?r=obtainium://add/https://github.com/vizenturelabs/cypride">
-    <img src="https://github.com/ImranR98/Obtainium/blob/main/assets/graphics/badge_obtainium.png" alt="Get it on Obtainium" height="96" />
+    <img src="https://github.com/ImranR98/Obtainium/blob/main/assets/graphics/badge_obtainium.png" alt="Get it on Obtainium" height="96" style="display: block;" />
   </a>
 
   <a href="https://t.me/CypRideOfficial">
-    <img src="https://s1.ax1x.com/2023/01/12/pSnTZ0f.png" alt="Get it on Telegram" height="96" />
+    <img src="https://s1.ax1x.com/2023/01/12/pSnTZ0f.png" alt="Get it on Telegram" height="96" style="display: block;" />
   </a>
-</div>
-<div style="display: flex; align-items: center; gap: 15px">
+
   <a href="https://alternativeto.net/software/cypride/about/?utm_source=badge&utm_medium=referral" target="_blank">
-    <img src="https://alternativeto.net/static/badges/badge-compact-dark.svg" alt="CypRide | AlternativeTo" />
+    <img src="https://alternativeto.net/static/badges/badge-compact-dark.svg" alt="CypRide | AlternativeTo" width="282" height="96" style="width: 282px; height: 96px; display: block;" />
   </a>
 </div>
 
