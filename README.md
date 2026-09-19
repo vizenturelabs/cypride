@@ -89,6 +89,10 @@ This isn't ride-hailing — it's neighbor helping neighbor across Cyprus' unique
   <a href="https://t.me/CypRideOfficial">
     <img src="https://s1.ax1x.com/2023/01/12/pSnTZ0f.png" alt="Get it on Telegram" height="96" />
   </a>
+
+  <a href="https://alternativeto.net/software/cypride/about/?utm_source=badge&utm_medium=referral" target="_blank">
+    <img src="https://alternativeto.net/static/badges/badge-compact-dark.svg" alt="CypRide | AlternativeTo" height="96" />
+  </a>
 </div>
 
 To verify your downloaded APK with tools as [AppVerifier](https://github.com/soupslurpr/AppVerifier) or [apksigner](https://developer.android.com/tools/apksigner), use the following signing certificate fingerprints:
