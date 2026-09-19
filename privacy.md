@@ -138,7 +138,7 @@ Continued use after changes constitutes acceptance.
 
 **For privacy questions or requests**:
 📧 vizenture@gmail.com
-🌐 https://github.com/vizenture/cypride (open-source code repository)
+🌐 https://github.com/vizenturelabs/cypride (open-source code repository)
 
 **Cyprus Data Protection Authority** (for complaints):
 Office of the Commissioner for Personal Data Protection
