@@ -77,7 +77,7 @@ This isn't ride-hailing — it's neighbor helping neighbor across Cyprus' unique
 
 ## 📥 **Download**
 
-<div style="display: flex; align-items: center; gap: 15px; flex-wrap: wrap;">
+<div style="display: flex; align-items: left; gap: 15px">
   <a href="https://github.com/vizenture/cypride/releases">
     <img src="https://raw.githubusercontent.com/rubenpgrady/get-it-on-github/refs/heads/main/get-it-on-github.png" alt="Get it on GitHub" height="96" />
   </a>
@@ -90,7 +90,7 @@ This isn't ride-hailing — it's neighbor helping neighbor across Cyprus' unique
     <img src="https://s1.ax1x.com/2023/01/12/pSnTZ0f.png" alt="Get it on Telegram" height="96" />
   </a>
 </div>
-<div style="display: flex; align-items: center; gap: 15px; flex-wrap: wrap;">
+<div style="display: flex; align-items: center; gap: 15px">
   <a href="https://alternativeto.net/software/cypride/about/?utm_source=badge&utm_medium=referral" target="_blank">
     <img src="https://alternativeto.net/static/badges/badge-wide-dark.svg" alt="CypRide | AlternativeTo" />
   </a>
