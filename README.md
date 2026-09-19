@@ -91,7 +91,7 @@ This isn't ride-hailing — it's neighbor helping neighbor across Cyprus' unique
   </a>
 
   <a href="https://alternativeto.net/software/cypride/about/?utm_source=badge&utm_medium=referral" target="_blank">
-    <img src="https://alternativeto.net/static/badges/badge-compact-dark.svg" alt="CypRide | AlternativeTo" width="646" height="250" style="width: 646px; height: 250px;" />
+    <img src="https://alternativeto.net/static/badges/badge-compact-dark.svg" alt="CypRide | AlternativeTo" width="248" height="96" style="width: 248px; height: 96px;" />
   </a>
 </div>
 
