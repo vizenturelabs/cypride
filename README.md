@@ -77,7 +77,7 @@ This isn't ride-hailing — it's neighbor helping neighbor across Cyprus' unique
 
 ## 📥 **Download**
 
-<div style="display: flex; gap: 15px">
+<div style="display: flex">
   <a href="https://github.com/vizenture/cypride/releases">
     <img src="https://raw.githubusercontent.com/rubenpgrady/get-it-on-github/refs/heads/main/get-it-on-github.png" alt="Get it on GitHub" height="96" />
   </a>
