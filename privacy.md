@@ -1,6 +1,6 @@
 # Privacy Policy for CypRide
 
-**Last Updated**: Sept 19, 2026
+**Last Updated**: Sep 19, 2026
 **Effective Date**: May 5, 2026
 **App Version**: 1.1+
 **Developer**: Vizenture Labs (Open Source Project)
