@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <!-- Default: Deny cleartext (HTTP) traffic, enforce HTTPS -->
+    <base-config cleartextTrafficPermitted="false">
+        <trust-anchors>
+            <certificates src="system" />
+        </trust-anchors>
+    </base-config>
+
+    <!-- Explicitly trust Firebase domains (can be extended to your custom backend) -->
+    <domain-config cleartextTrafficPermitted="false">
+        <domain includeSubdomains="true">project-bbc-alpha.web.app</domain>
+        <domain includeSubdomains="true">firebaseio.com</domain>
+        <domain includeSubdomains="true">googleapis.com</domain>
+    </domain-config>
+</network-security-config>
