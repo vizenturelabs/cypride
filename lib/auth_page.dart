@@ -16,6 +16,7 @@ class AuthPage extends StatefulWidget {
 class _AuthPageState extends State<AuthPage> {
   final _emailController = TextEditingController(); // ✅ Added for Email Link
   bool _isLoading = false;
+  DateTime? _lastLinkSentTime;
 
   late final StreamSubscription<User?> _authSubscription;
 
@@ -129,6 +130,12 @@ class _AuthPageState extends State<AuthPage> {
 
   // ✅ Email Link (Passwordless) Sign-In
   Future<void> _sendMagicLink() async {
+    final now = DateTime.now();
+    if (_lastLinkSentTime != null && now.difference(_lastLinkSentTime!).inSeconds < 30) {
+      _showError('Please wait 30 seconds before requesting another link.');
+      return;
+    }
+
     final email = _emailController.text.trim();
     if (!_validateEmail(email)) return;
 
@@ -151,6 +158,7 @@ class _AuthPageState extends State<AuthPage> {
         ),
       );
 
+      _lastLinkSentTime = DateTime.now();
       setState(() => _isLoading = false);
       _showSuccess('Magic link sent! Check your email inbox.');
 
