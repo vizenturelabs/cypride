@@ -48,7 +48,7 @@ CypRide — Smart Ride-Sharing for Cyprus — is a privacy-focused, open-source 
 - Lightweight — Minimal permissions requested; works efficiently on older devices
 
 ## 🛠️ **Built with (love)**
-- 🤖 AI — This project was supervided under AI developpment to design proper and secure code for the community
+- 🤖 AI — This project is supervided under AI developpment to design the most proper, secure and safe code for the community
 - 🧩 Flutter — Cross-platform UI toolkit for building natively compiled apps for mobile/web/desktop from a single codebase
 - 🎨 Material You — Google's 3rd generation design system, introduced in android 12
 
@@ -114,7 +114,7 @@ To verify your downloaded APK with tools as [AppVerifier](https://github.com/sou
 
 ## 🤝 **How to contribute**
 
-- We do not accept code contributions. This project is maintained only by us, we intend to keep it that way
+- We do not accept code contributions. This project is maintained only by us, BUT this could change
 - Submit your ideas/suggestions on [Telegram](https://t.me/+LR4iIYO_M54wYjFk) channel, we are always listening the Cyprus community
 - Encountered a crash or run into an issue? Create a new [Issue](https://github.com/vizenture/cypride/issues) with full details to help resolve it
 - You can help make the app accessible in multiple languages. To contribute, visit Hosted Weblate (coming soon..)
