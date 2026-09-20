@@ -9,22 +9,19 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:cypride/app.dart';
 import 'package:provider/provider.dart';
-import 'package:app_links/app_links.dart'; // ✅ Added for Email Link deep linking
+import 'package:app_links/app_links.dart';
 import 'providers/profile_provider.dart';
 
-// ✅ Shared global state (imported by app.dart and all screens)
 bool isFirebaseInitialized = false;
 late Box favoritesBox;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // ✅ Lock orientation to portrait
   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
   ]);
 
-  // ✅ Initialize Hive FIRST
   await Hive.initFlutter();
   try {
     if (!Hive.isBoxOpen('favorites')) {
@@ -42,10 +39,8 @@ void main() async {
     }
   }
 
-  // ✅ Initialize SharedPreferences
   await SharedPreferences.getInstance();
 
-  // ✅ Initialize Firebase
   if (!kIsWeb &&
       (defaultTargetPlatform == TargetPlatform.android ||
           defaultTargetPlatform == TargetPlatform.iOS)) {
@@ -53,25 +48,21 @@ void main() async {
       await Firebase.initializeApp();
       isFirebaseInitialized = true;
 
-      // ✅ Initialize App Check for security
       if (kDebugMode) {
-        // Use debug providers during development
         await FirebaseAppCheck.instance.activate(
           androidProvider: AndroidProvider.debug,
           appleProvider: AppleProvider.debug,
         );
       } else {
-        // Use production providers for release builds
         await FirebaseAppCheck.instance.activate(
           androidProvider: AndroidProvider.playIntegrity,
           appleProvider: AppleProvider.appAttest,
         );
       }
 
-      // ✅ Wait for auth state to restore (critical fix!)
       await FirebaseAuth.instance.authStateChanges().first.timeout(
         const Duration(seconds: 2),
-        onTimeout: () => null, // Continue even if timeout
+        onTimeout: () => null,
       );
 
       final user = FirebaseAuth.instance.currentUser;
@@ -80,7 +71,6 @@ void main() async {
       }
       if (kDebugMode) print('🔥 Firebase initialized, user: ${user?.uid ?? "none"}');
 
-      // ✅ NEW: Listen for Email Link deep links
       _handleIncomingLinks();
 
     } catch (e) {
@@ -90,15 +80,13 @@ void main() async {
     if (kDebugMode) print('🖥️ Desktop/Web mode: Firebase skipped');
   }
 
-  // ✅ NEW: Initialize ProfileProvider with persisted data
   final profileProvider = ProfileProvider();
-  await profileProvider.init(); // Load profile image path from secure storage
+  await profileProvider.init();
 
-  // ✅ Run CyprideApp wrapped with pre-initialized ProfileProvider
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider.value(value: profileProvider), // ✅ Pass initialized instance
+        ChangeNotifierProvider.value(value: profileProvider),
       ],
       child: const CyprideApp(),
     ),
@@ -119,7 +107,6 @@ Future<void> _initializeUserDocument(String userId) async {
   }
 }
 
-// ✅ UPDATED: Handle Email Link (Passwordless) Deep Links + Custom Scheme
 void _handleIncomingLinks() {
   final appLinks = AppLinks();
 
@@ -128,19 +115,20 @@ void _handleIncomingLinks() {
 
     String? linkToVerify;
 
-    // 1. Check if it's our custom scheme (cypride://auth?link=...) from the web landing page
     if (uri.scheme == 'cypride' && uri.host == 'auth') {
       final encodedLink = uri.queryParameters['link'];
       if (encodedLink != null) {
         linkToVerify = Uri.decodeComponent(encodedLink);
-        if (kDebugMode) print('🔗 Caught custom scheme, decoded Firebase link');
+        if (!linkToVerify.startsWith('https://project-bbc-alpha.web.app/')) {
+          if (kDebugMode) print('⚠️ Rejected deep link: Untrusted domain');
+          return;
+        }
+        if (kDebugMode) print('🔗 Caught custom scheme, decoded and validated Firebase link');
       }
     } else {
-      // 2. Fallback: Check if it's a direct App Link (https://...)
       linkToVerify = uri.toString();
     }
 
-    // 3. Verify the extracted link with Firebase
     if (linkToVerify != null && FirebaseAuth.instance.isSignInWithEmailLink(linkToVerify)) {
       final prefs = await SharedPreferences.getInstance();
       final email = prefs.getString('email_for_signin') ?? '';
@@ -153,7 +141,6 @@ void _handleIncomingLinks() {
           );
           await prefs.remove('email_for_signin');
           if (kDebugMode) print('✅ Successfully signed in with email link');
-          // GoRouter will automatically detect the auth state change and redirect to /home
           appRouter.go('/home');
         } catch (e) {
           if (kDebugMode) print('⚠️ Error signing in with email link: $e');
@@ -164,9 +151,7 @@ void _handleIncomingLinks() {
     }
   }
 
-  // 1. Handle cold start (app opened directly from the link while completely closed)
   appLinks.getInitialLink().then(processLink);
 
-  // 2. Handle warm start (app was in background, link clicked)
   appLinks.uriLinkStream.listen(processLink);
 }
