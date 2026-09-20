@@ -63,7 +63,7 @@ CypRide — Smart Ride-Sharing for Cyprus — is a privacy-focused, open-source 
 
 ## 🌍 **Why Cyprus Needs CypRide**
 
-While carpooling services like BlaBlaCar and Karos operate internationally, Cyprus has no dedicated, locally-optimized platform for community-based ride sharing. CypRide fills this gap with a zero-commission, open-source solution built specifically for Cypriot routes — connecting people across the island from Nicosia to Limassol, Larnaca to Paphos.
+While carpooling services like BlaBlaCar and Karos operate internationally, Cyprus has no dedicated, locally-optimized platform for community-based ride-sharing. CypRide fills this gap with a zero-commission, open-source solution built specifically for Cypriot routes — connecting people across the island from Nicosia to Limassol, Larnaca to Paphos.
 
 - Drivers never profit — only share actual fuel/toll costs (GDPR-compliant cost-sharing model)
 - No hidden commissions eat into shared expenses
@@ -117,7 +117,7 @@ To verify your downloaded APK with tools as [AppVerifier](https://github.com/sou
 - We do not accept code contributions. This project is maintained only by us for now, BUT this could change
 - Submit your ideas/suggestions on [Telegram](https://t.me/+LR4iIYO_M54wYjFk) channel, we are always listening the Cyprus community
 - Encountered a crash or run into an issue? Create a new [Issue](https://github.com/vizenture/cypride/issues) with full details to help resolve it
-- You can help make the app accessible in multiple languages. To contribute, visit Hosted Weblate (coming soon..)
+- You can help make the app accessible in multiple languages. To contribute, visit Hosted Weblate (coming soon)
 - The best contribution is simply using and enjoying the app, we spent so much time on!
 
 ## 🎁 **How can I support the CypRide project**
