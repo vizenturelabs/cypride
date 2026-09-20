@@ -1,11 +1,11 @@
 # Privacy Policy for CypRide
 
-**Last Updated**: May 5, 2026  
+**Last Updated**: Sep 19, 2026  
 **Effective Date**: May 5, 2026  
 **App Version**: 1.0+  
-**Developer**: Vizenture (Open Source Project)  
+**Developer**: Vizenture Labs (Open Source Project)  
 **Contact**: vizenture@gmail.com  
-**Hosting**: [Link to policy, e.g., https://vizenture.github.io/cypride/privacy]  
+**Hosting**: [Link to policy, e.g., https://vizenturelabs.github.io/cypride/privacy]  
 
 ---
 
@@ -138,7 +138,7 @@ Continued use after changes constitutes acceptance.
 
 **For privacy questions or requests**:  
 📧 vizenture@gmail.com  
-🌐 https://github.com/vizenture/cypride (open-source code repository)
+🌐 https://github.com/vizenturelabs/cypride (open-source code repository)
 
 **Cyprus Data Protection Authority** (for complaints):  
 Office of the Commissioner for Personal Data Protection  
