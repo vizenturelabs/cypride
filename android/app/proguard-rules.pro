@@ -17,12 +17,21 @@
 -keep class io.flutter.plugin.common.StandardMessageCodec { *; }
 -keep class io.flutter.plugin.common.StandardMethodCodec { *; }
 
+# Google Sign-In Plugin & Native SDKs (Scoped to prevent overly broad warnings)
+-keep class io.flutter.plugins.googlesignin.** { *; }
+-keep class com.google.android.gms.auth.api.signin.** { *; }
+-keep class com.google.android.gms.common.api.ApiException { *; }
+-keep class com.google.android.gms.common.SignInButton { *; }
+-keep class com.google.android.gms.tasks.** { *; }
+
+# Keep Guava (often required by Google Play Services under the hood)
+-dontwarn com.google.common.**
+
 # Secure Storage & Cryptography
--keep class com.it_nomads.fluttersecurestorage.FlutterSecureStoragePlugin { *; }
+-keep class com.it_nomads.fluttersecurestorage.** { *; }
 -dontwarn androidx.security.crypto.**
 
 # Firebase & Play Services:
-# Broad rules removed. The SDKs include their own consumer proguard rules.
 -dontwarn com.google.firebase.**
 -dontwarn com.google.android.gms.**
 -dontwarn com.google.play.core.tasks.**
@@ -36,4 +45,4 @@
 # Prevent R8 from failing on missing optional dependencies
 -dontwarn java.lang.invoke.**
 -dontwarn org.conscrypt.**
--dontwarn **$LambdaLambdaLambda**
+-dontwarn **$$Lambda$**
