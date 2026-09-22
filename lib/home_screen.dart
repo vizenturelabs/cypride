@@ -543,7 +543,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
             child: Align(
               alignment: Alignment.centerLeft,
               child: Text(
-                'CypRide v1.1.2',
+                'CypRide v1.1.3',
                 style: TextStyle(
                   color: Colors.grey[600],
                   fontSize: 12,
