@@ -7,10 +7,11 @@
         </trust-anchors>
     </base-config>
 
-    <!-- Explicitly trust Firebase domains (can be extended to your custom backend) -->
+    <!-- Explicitly trust Firebase/Google domains required for Auth -->
     <domain-config cleartextTrafficPermitted="false">
         <domain includeSubdomains="true">project-bbc-alpha.web.app</domain>
         <domain includeSubdomains="true">firebaseio.com</domain>
         <domain includeSubdomains="true">googleapis.com</domain>
+        <domain includeSubdomains="true">accounts.google.com</domain>
     </domain-config>
 </network-security-config>
