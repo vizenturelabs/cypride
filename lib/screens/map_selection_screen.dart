@@ -25,6 +25,19 @@ class _MapSelectionScreenState extends State<MapSelectionScreen> {
   final GlobalKey<ScaffoldMessengerState> _scaffoldKey =
   GlobalKey<ScaffoldMessengerState>();
 
+  // Guardrail: Check if coordinates are within Cyprus bounding box
+  bool _isInCyprus(LatLng position) {
+    const double minLat = 34.50;
+    const double maxLat = 35.80;
+    const double minLng = 32.00;
+    const double maxLng = 35.00;
+
+    return position.latitude >= minLat &&
+        position.latitude <= maxLat &&
+        position.longitude >= minLng &&
+        position.longitude <= maxLng;
+  }
+
   @override
   void initState() {
     super.initState();
@@ -45,13 +58,26 @@ class _MapSelectionScreenState extends State<MapSelectionScreen> {
 
       LatLng positionToUse;
       if (permission == LocationPermission.denied) {
-        positionToUse = const LatLng(34.8706, 33.6093);
+        positionToUse = const LatLng(34.83, 33.28);
         _isLocationPermissionGranted = false;
       } else {
         // Get current position
         Position position = await Geolocator.getCurrentPosition();
-        positionToUse = LatLng(position.latitude, position.longitude);
-        _isLocationPermissionGranted = true;
+        LatLng currentLatLng = LatLng(position.latitude, position.longitude);
+
+        if (_isInCyprus(currentLatLng)) {
+          positionToUse = currentLatLng;
+          _isLocationPermissionGranted = true;
+        } else {
+          // User is abroad: force map to Cyprus and disable geo-location
+          positionToUse = const LatLng(34.83, 33.28);
+          _isLocationPermissionGranted = false;
+          if (mounted) {
+            _scaffoldKey.currentState?.showSnackBar(
+              const SnackBar(content: Text('You are not based in Cyprus')),
+            );
+          }
+        }
       }
 
       // Update the position and initialize map
@@ -161,7 +187,6 @@ class _MapSelectionScreenState extends State<MapSelectionScreen> {
       ),
       body: Stack(
         children: [
-          // FIX: Wrap FlutterMap in Positioned.fill to ensure it takes full screen
           Positioned.fill(
             child: FlutterMap(
               mapController: _mapController,
@@ -180,10 +205,8 @@ class _MapSelectionScreenState extends State<MapSelectionScreen> {
                   urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
                   subdomains: const ['a', 'b', 'c'],
                   maxZoom: 19,
-                  // CORRECT PARAMETER FOR USER-AGENT
                   userAgentPackageName: 'com.vizenture.cypride',
                 ),
-                // Correct attribution for OpenStreetMap
                 Positioned(
                   bottom: 4,
                   right: 4,
@@ -325,8 +348,15 @@ class _MapSelectionScreenState extends State<MapSelectionScreen> {
                     Position position = await Geolocator.getCurrentPosition();
                     LatLng currentPosition =
                     LatLng(position.latitude, position.longitude);
-                    _mapController.move(currentPosition, 14);
-                    await _getAddressFromLatLng(currentPosition);
+
+                    if (_isInCyprus(currentPosition)) {
+                      _mapController.move(currentPosition, 14);
+                      await _getAddressFromLatLng(currentPosition);
+                    } else {
+                      _scaffoldKey.currentState?.showSnackBar(
+                        const SnackBar(content: Text('You are not based in Cyprus')),
+                      );
+                    }
                   } catch (e) {
                     _scaffoldKey.currentState?.showSnackBar(
                       const SnackBar(
