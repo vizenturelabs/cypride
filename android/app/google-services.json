@@ -22,11 +22,19 @@
           }
         },
         {
-          "client_id": "398627783777-mhdj1eukiab7ju7tqo2rdpgble8bdi72.apps.googleusercontent.com",
+          "client_id": "398627783777-e9h3dtvu28r4f903ibkfrs8p9pk1tkhc.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.vizenture.cypride",
-            "certificate_hash": "02ef57059b0f76bdc1d97421da623bfe9063bef5"
+            "certificate_hash": "06d082e00c5f64cfe7c96ca6fdc15e41d937c96b"
+          }
+        },
+        {
+          "client_id": "398627783777-evmhusoktmt4qqg2jb7uphribmf9470b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.vizenture.cypride",
+            "certificate_hash": "c01d2a9dbc3ab901f11f8ae10309f8dec7a94f15"
           }
         },
         {
@@ -43,7 +51,7 @@
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "398627783777-9dc2a5jqqpe18m4ppl62k9l025gk5jrn.apps.googleusercontent.com",
+              "client_id": "398627783777-sm21n83tti11hn69elg8pmnmmjkfq36b.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
