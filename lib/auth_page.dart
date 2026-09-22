@@ -139,6 +139,15 @@ class _AuthPageState extends State<AuthPage> {
     final email = _emailController.text.trim();
     if (!_validateEmail(email)) return;
 
+    // GUARDRAIL: Block Google-owned email domains from using Passwordless Email Link
+    final lowerCaseEmail = email.toLowerCase();
+    final blockedDomains = ['@gmail.com', '@googlemail.com', '@google.com'];
+
+    if (blockedDomains.any((domain) => lowerCaseEmail.endsWith(domain))) {
+      _showError('Please use Google Sign-In for Google/Gmail addresses.');
+      return;
+    }
+
     setState(() => _isLoading = true);
 
     try {
