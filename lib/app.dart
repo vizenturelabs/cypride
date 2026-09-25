@@ -1,4 +1,5 @@
 import 'dart:async'; // ✅ Added for StreamSubscription
+import 'package:dynamic_color/dynamic_color.dart'; // ✅ Added for Dynamic Colors
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -44,13 +45,23 @@ class CyprideApp extends StatelessWidget {
       create: (_) => ThemeProvider(),
       child: Consumer<ThemeProvider>(
         builder: (context, themeProvider, child) {
-          return MaterialApp.router(
-            title: 'CypRide',
-            theme: AppTheme.lightTheme,
-            darkTheme: AppTheme.darkTheme,
-            themeMode: themeProvider.themeMode,
-            routerConfig: appRouter, // _router
-            debugShowCheckedModeBanner: false,
+          return DynamicColorBuilder(
+            builder: (ColorScheme? lightDynamic, ColorScheme? darkDynamic) {
+              final lightScheme = themeProvider.useDynamicColors ? lightDynamic : null;
+              final darkScheme = themeProvider.useDynamicColors ? darkDynamic : null;
+
+              return MaterialApp.router(
+                title: 'CypRide',
+                theme: AppTheme.buildLightTheme(dynamicScheme: lightScheme),
+                darkTheme: AppTheme.buildDarkTheme(
+                  dynamicScheme: darkScheme,
+                  isAmoled: themeProvider.useAmoled,
+                ),
+                themeMode: themeProvider.themeMode,
+                routerConfig: appRouter,
+                debugShowCheckedModeBanner: false,
+              );
+            },
           );
         },
       ),
@@ -67,7 +78,7 @@ bool get _isDesktop {
 }
 
 // ✅ Complete GoRouter Configuration
-final GoRouter appRouter = GoRouter( // _router
+final GoRouter appRouter = GoRouter(
   initialLocation: '/',
   // ✅ FIX 2: Force GoRouter to re-evaluate redirects when Firebase auth state changes
   refreshListenable: GoRouterRefreshStream(FirebaseAuth.instance.authStateChanges()),
