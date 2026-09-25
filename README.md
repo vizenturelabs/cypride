@@ -106,7 +106,8 @@ To verify your downloaded APK with tools as [AppVerifier](https://github.com/sou
 - [ ] Ride notifications for the dashboard
 - [ ] App update notification for new version
 - [ ] Language options in settings (Greek, Russian)
-- [ ] Dynamic color for a cohesive visual experience
+- [X] Pure black background with the AMOLED Dark Mode 
+- [X] Dynamic color for a cohesive visual experience
 
 ## 🙋 **Community**
 
