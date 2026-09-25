@@ -15,7 +15,7 @@ class SettingsScreen extends StatelessWidget {
           onPressed: () => context.pop(),
           color: Theme.of(context).textTheme.titleLarge?.color,
         ),
-        title: const Text('My Settings'),
+        title: const Text('Settings'),
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         foregroundColor: Theme.of(context).textTheme.titleLarge?.color,
         elevation: 0,
@@ -36,26 +36,90 @@ class SettingsScreen extends StatelessWidget {
             const SizedBox(height: 16),
             Consumer<ThemeProvider>(
               builder: (context, themeProvider, child) {
+                final isSystemDark =
+                    MediaQuery.platformBrightnessOf(context) == Brightness.dark;
+                final isDarkModeActive =
+                    themeProvider.themeMode == ThemeMode.dark ||
+                        (themeProvider.themeMode == ThemeMode.system &&
+                            isSystemDark);
+
                 return ListTile(
                   title: const Text('Dark Mode'),
-                  subtitle: const Text('Toggle dark theme'),
+                  subtitle: Text(
+                    themeProvider.themeMode == ThemeMode.system
+                        ? 'Following system settings'
+                        : 'Manual override',
+                  ),
                   trailing: Switch(
-                    value: themeProvider.themeMode == ThemeMode.dark,
+                    value: isDarkModeActive,
                     onChanged: (value) {
                       themeProvider.setThemeMode(
-                          value ? ThemeMode.dark : ThemeMode.light
+                        value ? ThemeMode.dark : ThemeMode.light,
                       );
                     },
                   ),
                 );
               },
             ),
-            ListTile(
-              title: const Text('System Default'),
-              subtitle: const Text('Follow system appearance settings'),
-              trailing: Icon(Icons.brightness_4),
-              onTap: () {
-                context.read<ThemeProvider>().setThemeMode(ThemeMode.system);
+            Consumer<ThemeProvider>(
+              builder: (context, themeProvider, child) {
+                final isSystemMode =
+                    themeProvider.themeMode == ThemeMode.system;
+                return ListTile(
+                  title: const Text('System Default'),
+                  subtitle: const Text('Follow system appearance settings'),
+                  trailing: isSystemMode
+                      ? Icon(
+                    Icons.check,
+                    color: Theme.of(context).colorScheme.primary,
+                  )
+                      : const Icon(Icons.brightness_4),
+                  onTap: () {
+                    themeProvider.setThemeMode(ThemeMode.system);
+                  },
+                );
+              },
+            ),
+            const Divider(height: 32),
+            Text(
+              'Customization',
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+                color: Theme.of(context).textTheme.titleLarge?.color,
+              ),
+            ),
+            const SizedBox(height: 8),
+            Consumer<ThemeProvider>(
+              builder: (context, themeProvider, child) {
+                return SwitchListTile(
+                  title: const Text('Dynamic Colors'),
+                  subtitle: const Text('Use Android Material You colors'),
+                  value: themeProvider.useDynamicColors,
+                  onChanged: (value) {
+                    themeProvider.setDynamicColors(value);
+                  },
+                );
+              },
+            ),
+            Consumer<ThemeProvider>(
+              builder: (context, themeProvider, child) {
+                final isSystemDark =
+                    MediaQuery.platformBrightnessOf(context) == Brightness.dark;
+                final isDarkModeActive =
+                    themeProvider.themeMode == ThemeMode.dark ||
+                        (themeProvider.themeMode == ThemeMode.system && isSystemDark);
+
+                return SwitchListTile(
+                  title: const Text('AMOLED Dark Mode'),
+                  subtitle: const Text('Pure black background for OLED screens'),
+                  value: themeProvider.useAmoled,
+                  onChanged: isDarkModeActive
+                      ? (value) {
+                    themeProvider.setAmoled(value);
+                  }
+                      : null,
+                );
               },
             ),
           ],
