@@ -38,7 +38,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
 
   late AnimationController _menuIconController;
 
-  static const String _appVersion = '1.1.1';
+  static const String _appVersion = '1.1.4';
   static const String _disclaimerKey = 'disclaimer_accepted_version';
   bool _disclaimerAccepted = false;
 
@@ -454,6 +454,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
     final userEmail = _getUserContactInfo(user);
 
     return Drawer(
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor, // ✅ FIX: Ensures AMOLED pure black applies to Drawer
       child: Column(
         children: [
           UserAccountsDrawerHeader(
@@ -543,9 +544,9 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
             child: Align(
               alignment: Alignment.centerLeft,
               child: Text(
-                'CypRide v1.1.3',
+                'CypRide v1.1.4',
                 style: TextStyle(
-                  color: Colors.grey[600],
+                  color: Theme.of(context).textTheme.bodySmall?.color, // ✅ FIX: Replaced hardcoded Colors.grey[600] for better dark mode contrast
                   fontSize: 12,
                 ),
               ),
@@ -1010,6 +1011,12 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                     _buildInfoRow(Icons.directions_car, 'Car Brand',
                         data['carBrand'] ?? 'Not specified'),
                     if (!allowCall) ...[
+                      _buildInfoRow(
+                        Icons.chat,
+                        'Channel',
+                        ottPlatform ?? 'WhatsApp',
+                      ),
+                    ] else if (data['username'] != null || data['ottPlatform'] != null) ...[
                       _buildInfoRow(
                         Icons.chat,
                         'Channel',
